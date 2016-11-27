@@ -27,7 +27,8 @@ var HouseSchema = mongoose.Schema({
     description: String,
     image_path: [String],
     rate: Number,
-    university: String
+    university: String,
+    price: Number
 });
 
 // Export the Mongoose model
