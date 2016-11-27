@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 // Create our Express application
 var app = express();
@@ -17,7 +18,9 @@ var allowCrossDomain = function(req, res, next) {
   next();
 };
 app.use(allowCrossDomain);
+mongoose.connect(require('./config/secrets').mongo_connection);
 
+app.use(express.static(__dirname + '/public'));
 // Use the body-parser package in our application
 app.use(bodyParser.urlencoded({
   extended: true
