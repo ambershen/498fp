@@ -3,5 +3,5 @@
  */
 module.exports = {
     token : "secret-llama",
-    mongo_connection : "mongodb://localhost/mp4"
+    mongo_connection : "mongodb://qzhang72:zqkstc520@ds147267.mlab.com:47267/pillow_finder"
 };
