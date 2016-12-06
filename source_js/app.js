@@ -16,10 +16,13 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'HouseDetailView'
   }).
   when('/houses',{
-  	templateUrl: 'partials/houses.html',
-  	controller:'HouseListView'
+    templateUrl: 'partials/houses.html',
+    controller:'HouseListView'
+  }).
+  when('/login',{
+    templateUrl: 'partials/login.html',
   }).
   otherwise({
-    redirectTo: '/houses'
+    redirectTo: '/login'
   });
 }]);
