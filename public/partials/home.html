@@ -1,0 +1,29 @@
+<div class="search-bar">
+  <label>
+    Number of people
+    <input type="number" ng-model="house.capacity">
+    </select>
+  </label>
+  <label>
+  University
+  <select ng-options = "house.university for house in houses" ng-model = "house">
+  </select>
+  </label>
+  <label>
+  from
+  <datepicker>
+    <input type="text" ng-model ="startDate">
+  </datepicker>
+  </label>
+  <label>
+  to
+  <datepicker>
+  <input type="text" ng-model = "endDate">
+  </datepicker>
+  </label>
+</div>
+
+<div class="search-result">
+  
+
+</div>

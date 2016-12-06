@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>FP Starter</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="./lib/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+
+    <!-- Angular Scripts -->
+    <!-- NOTE: removing the ".min." can help debugging in the console-->
+    <script src="./lib/angular/angular.min.js"></script>
+    <script src="./lib/angular-route/angular-route.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controllers.js"></script>
+    <script src="./js/services.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.0/lodash.min.js"></script>
+    <script src="https://cdn.rawgit.com/nmccready/angular-simple-logger/0.1.7/dist/angular-simple-logger.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.3.3/angular-google-maps.min.js"></script>
+</head>
+
+<body ng-app="mp4">
+<h5 class="align-left">PillowFinder</h5>
+<ul class="menu align-right">
+
+<li><a href="#">Sign Up</a></li>
+<li><a href="#">Log In</a></li>
+<li><a href="#">Sublet</a></li>
+<li><a href="#">Sublease</a></li>
+</ul>
+    <div ng-view></div>
+
+    <!-- Scripts -->
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="./lib/foundation-sites/dist/foundation.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./lib/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>    
+
+<script src="//rawgit.com/angular-ui/angular-google-maps/2.1.5/dist/angular-google-maps.min.js"></script>
+<script src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyB36qymfkWQerKp4IlgC0VO3kpMYOCett4"></script> -->
+    <script>
+        $(document).foundation();
+    </script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
