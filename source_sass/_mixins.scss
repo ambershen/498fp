@@ -1,1 +1,14 @@
 // Insert your mixins
+@mixin transition($transition){
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+}
+
+@mixin transform($transform){
+	transform: $transform;
+	-ms-transform: $transform;
+	-webkit-transform: $transform;
+}
+

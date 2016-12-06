@@ -1,7 +1,7 @@
 var mp4Services = angular.module('mp4Services', []);
 
 
-var baseUrl = "http://216.171.2.19:4000";
+var baseUrl = "http://localhost:4000";
 
 mp4Services.factory('HousesGateway', function($http) {
     var url = baseUrl + "/api/houses";
