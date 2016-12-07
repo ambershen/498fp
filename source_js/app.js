@@ -10,10 +10,23 @@ var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services', '72
     //     });
     // }]);
 
+app.filter('dateRange', function() {
+  return function(input, startDate, endDate) {
+
+    var retArray = [];
+
+    angular.forEach(input, function(obj){
+      var receivedDate = obj.received;
+
+    });
+
+    return retArray;
+  };
+});
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-  when('/houses/:id', {
+  when('/housedetails/:id', {
     templateUrl: 'partials/house_details.html',
     controller: 'HouseDetailView'
   }).

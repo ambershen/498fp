@@ -14,6 +14,12 @@ module.exports = function(router) {
             }
         }
         house.dateCreated =  new Date();
+        if(house.intervals != undefined) {
+            house.intervals.forEach(function(data){
+               data.start = new Date(data.start);
+               data.end = new Date(data.end);
+            });
+        }
         house.save(function(err, savedTask) {
             if (err)
                 return res.status(500).send({ 'message': 'crashed', 'data': [] });
@@ -23,6 +29,7 @@ module.exports = function(router) {
     });
 
     housesRoute.get(function(req, res) {
+        console.log(req.query);
         var count = req.query.count === 'true';
         if(count === true) {
             House.count(where, function(err, list) {
