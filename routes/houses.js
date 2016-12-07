@@ -29,7 +29,6 @@ module.exports = function(router) {
     });
 
     housesRoute.get(function(req, res) {
-        console.log(req.query);
         var count = req.query.count === 'true';
         if(count === true) {
             House.count(where, function(err, list) {

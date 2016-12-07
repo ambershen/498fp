@@ -24,11 +24,11 @@ mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout','UsersG
     }
   };
   $scope.login = function() {
-      UsersGateway.get({count:true,where:{password:$scope.password, email:$scope.email}}).success(function(data){
+      UsersGateway.get({where:{password:{$eq:$scope.password}, email:{$eq:$scope.email}}}).success(function(data){
          console.log(data);
-          if(data === 1) {
-              $location.url('/houses');
-          }
+          $window.sessionStorage.userName = data.data[0].name;
+          $location.url('/houses');
+
       });
   };
 }]);

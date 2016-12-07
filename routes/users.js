@@ -34,8 +34,11 @@ module.exports = function(router) {
     });
 
     usersRoute.get(function(req, res) {
-
+        console.log("user get");
+        console.log(req.query);
         var count = req.query.count === 'true';
+        var where = req.query.where != undefined? JSON.parse(req.query.where): undefined;
+
         if(count === true) {
             User.count(where, function(err, list) {
                 if (err)
@@ -45,11 +48,11 @@ module.exports = function(router) {
             });
             return;
         }
-        var where = req.query.where != undefined? JSON.parse(req.query.where): undefined;
         var sort = req.query.sort != undefined? JSON.parse(req.query.sort): undefined;
         var select =req.query.select!= undefined? JSON.parse(req.query.select):undefined;
         var skip = req.query.skip!=undefined? parseInt(req.query.skip): undefined;
         var limit = req.query.limit != undefined? parseInt(req.query.limit): undefined;
+        console.log(where);
         User.find(where, select, function (err, list) {
             if (err)
                 return res.status(500).send({'message': 'Failed to retrieve tasks.', 'data': []});
