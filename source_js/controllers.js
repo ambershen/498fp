@@ -68,7 +68,9 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
 
 mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
   var id = rp.id;
-  $scope.house = "";
+    // $scope.eventSources = [{events:[{title:"demo", start: new Date(), allDay:true}]}];
+    $scope.eventSources = []
+    $scope.house = "";
     $scope.name = $window.sessionStorage.userName;
 
   HousesGateway.getOne(id).success(function(data){
@@ -81,6 +83,11 @@ mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams
         longitude: $scope.house.location.lng
       }
     };
+    $scope.house.intervals.forEach(function(data){
+       // console.log(data);
+        $scope.eventSources.push({events:[{title:"booked", start: new Date(data.start), end: new Date(data.end), allDay:true}]});
+    });
+
   }).error(function(error){
   });
 }]);
