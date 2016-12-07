@@ -1,41 +1,79 @@
-
-<div class="search-form wrapper">
+<div class="top-bar user-navbar">
 	<div class="row">
-		<div class="search-form unversity small-12 medium-3 large-4 columns"">
-			<label><span> University<span>
-  			</label>
-  			<select ng-options = "house.university for house in houses">
-  			</select>
- 		</div>
- 		<div class="search-form dates small-12 medium-4 large-4 columns">
-	 		<label><span>from<span>
-	  		</label>
-	  		<div class="row">
-	  			<datepicker class="small-6 medium-6 large-6 columns"">
-	    			<input type="text" placeholder="from">
-	  			</datepicker>
-	  			<datepicker class="small-6 medium-6 large-6 columns">
-		  			<input type="text" placeholder="to">
-		 		</datepicker>
-	 		</div>
-  		</div>
-  		<div class="search-form people small-12 medium-3 large-4 columns">
-  			<label><span>Who</span>
-    		</label>
-    		<input type="number">
-  		</div>
-  
-  	</div>
-</div>
-
-<div class="row small-up-1 medium-up-2 large-up-3" ng-repeat="house in houses">
-	<div class="column">
-	<img ng-src = "#">
-	<span>{{house.name}}</span>
-	<span>{{house.owner}}</span>
-	<span>{{house.rating}}</span>
-	<a href="#/housedetails/{{house._id}}">View Details</a>
+	<div class="small-6 medium-6 large-6 columns">
+		<h5>PillowFindr</h5>
+	</div>
+	<div class="small-6 medium-6 large-6 columns text-right">
+		<span class="loging-name">Amber Shen</span>
+		<i dropdown-toggle="#user-dropdown" class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+		<ul id="user-dropdown" class="f-dropdown">
+				<li>
+					<a href="#/user">account</a>
+				</li>
+				<li>
+					<a href="#/login">log out</a>
+				</li>
+			</ul>
+	</div>
 	</div>
 </div>
+<div class="houses-container" ng-controller ="HouseListView">
+<div class="row columns text-center">
+	<h3>Where do you want to stay?</h3>
+</div>
+<div class="search-form-wrapper">
+	<div class="row">
+		<div class="small-12 medium-4 large-4 columns">
+				<label>Students</label>
+		    	<input type="number" min="1" class="search-input">
+	    </div>
+	    <div class="small-12 medium-4 large-4 columns"">
+				<label>University</label>
+				<select class="search-input" ng-options = "house.university for house in houses">
+				</select>
+		</div>
+		<div class="search-form dates small-12 medium-2 large-2 columns">
+			<label>Check In</label>				
+			<datepicker date-format="dd-MM-yyyy">
+				<input class="search-input" ng-model="startDate" type="text"/>
+			</datepicker>
+		</div>
+		<div class="search-form dates small-12 medium-2 large-2 columns">		
+			<label>Check Out</label>
+			<datepicker date-format="dd-MM-yyyy">
+				<input class="search-input" ng-model="endDate" type="text" ng-change="checkDate()"/>
+			</datepicker>
+		</div>
 
+	</div>
+	<div class="row">
+		<button class="expanded hollow button">SEARCH</button>
+	</div>
+</div>
+<div class="houses-wrapper">
+	<div class="row small-up-1 medium-up-2 large-up-3">
+		<div class="column">
+			<div class="house-box">
+				<img class="thumbnail house-info" src="../images/house1.jpg" alt="house 1" style="border: none;">
+				<span class="house-info">Modern San Francisco Apartment</span>
+				<span class="house-info link"><a href="#/housedetails/{{house._id}">View Details</a><span>
+			</div>
+		</div>
+		<div class="column">
+			<div class="house-box">
+				<img class="thumbnail house-info" src="../images/house5.jpg" alt="house 5" style="border: none;">
+				<span class="house-info">Ideas para decorar tu cuarto estilo Boho</span>
+				<span class="house-info link"><a href="#/housedetails/{{house._id}">View Details</a><span>
+			</div>
+		</div>
+		<div class="column">
+			<div class="house-box">
+				<img class="thumbnail house-info" src="../images/house3.jpg" alt="house 3" style="border: none;">
+				<span class="house-info">Illuminated Texture Tools</span>
+				<span class="house-info link"><a href="#/housedetails/{{house._id}">View Details</a></span>
+			</div>
+		</div>
 
+	</div>
+</div>
+</div>

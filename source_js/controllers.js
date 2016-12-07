@@ -1,22 +1,25 @@
 var mp4Controllers = angular.module('mp4Controllers', []);
 
-
-mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
-  $scope.select = {
-    _id: 1,
-    intervals: 1,
-    user: 1,
-    is_bed: 1,
-    is_coach: 1,
-    description: 1,
-    image_path: 1,
-    rate: 1,
-    university: 1
+mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout', function($scope,$location,$timeout){
+  $scope.formInfo = {};
+  $scope.confirmPass = '';
+  $scope.saveUser = function(){
+    $scope.passwordMatch = '';
+    if($scope.formInfo.Password !== $scope.confirmPass){
+      $scope.passwordMatch = 'Invalid Password';
+    }
+    UsersGateway.put()
   };
-  HousesGateway.get($scope.select)
-    .success(function(data){
-      $scope.houselist = data.data;
-    })
+}]);
+mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
+  $scope.startDate = new Date();
+  $scope.endDate = new Date();
+  $scope.checkDate = function(){
+    if($scope.endDate <= $scope.startDate){
+      console.log($scope.endDate);
+      alert("This is not a valid time period");
+    }
+  };
   
 }]);
 mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
