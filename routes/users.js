@@ -10,6 +10,7 @@ module.exports = function(router) {
         var data = req.body;
         user.name = data.name;
         user.email = data.email;
+        user.password = data.password;
         user.dateCreated =  new Date();
         user.houses = [];
         if(user.name === "undefined" || user.email === "undefined" || user.name === undefined || user.email === undefined) {

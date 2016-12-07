@@ -3,7 +3,7 @@
     <h5>PillowFindr</h5>
   </div>
   <div class="top-bar-right text-right">
-    <span class="loging-name">Amber Shen</span>
+    <span class="loging-name">{{name}}</span>
     <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
   </div>
 </div>
@@ -24,12 +24,12 @@
         </select>
     </div>
     <div class="search-form dates small-12 medium-2 large-2 columns">
-      <label>Check In</label>       
+      <label>Check In</label>
       <datepicker>
         <input class="search-input" ng-model="date" type="text"/>
       </datepicker>
     </div>
-    <div class="search-form dates small-12 medium-2 large-2 columns">   
+    <div class="search-form dates small-12 medium-2 large-2 columns">
       <label>Check Out</label>
       <datepicker>
         <input class="search-input" ng-model="date" type="text"/>
@@ -47,7 +47,7 @@
         <a href="#/houses"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to results </a>
       </span>
       </div>
-      <div ng-controller="HouseDetailView" class="ng-scope">
+      <div  class="ng-scope">
         <ui-gmap-google-map ng-if='map.center' center='map.center' zoom="map.zoom" options="options">
           <ui-gmap-marker coords="marker.coords"  options="marker.options" events="marker.events" idkey="marker.id">
           </ui-gmap-marker>

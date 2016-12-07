@@ -39,17 +39,17 @@ mp4Services.factory('HousesGateway', function($http) {
 mp4Services.factory('UsersGateway', function($http) {
     var url = baseUrl + "/api/users";
     return {
-        get: function(select) {
-            return $http.get(url, {params: {select: select}});
+        get: function(params) {
+            return $http.get(url, {params: params});
         },
         getOne: function(id) {
             return $http.get(url+'/'+ id);
         },
         post : function(user) {
-            return $http.post(url, house);
+            return $http.post(url, user);
         },
         put : function(user) {
-            return $http.put(url+ '/' + user._id, house);
+            return $http.put(url+ '/' + user._id, user);
         },
         delete : function(id) {
             return $http.delete(url + '/' + id);

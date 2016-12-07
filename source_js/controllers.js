@@ -1,14 +1,35 @@
 var mp4Controllers = angular.module('mp4Controllers', []);
 
+mp4Controllers.controller('navbarController', [,function(){
 
-mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout', function($scope,$location,$timeout){
+}]);
+
+mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout','UsersGateway','$window', function($scope,$location,$timeout,UsersGateway,$window){
   $scope.formInfo = {};
   $scope.confirmPass = '';
   $scope.saveUser = function(){
     $scope.passwordMatch = '';
-    if($scope.formInfo.Password !== $scope.confirmPass){
+    if($scope.formInfo.password !== $scope.confirmPass){
       $scope.passwordMatch = 'Invalid Password';
+    }else{
+        // console.log($scope.formInfo);
+        UsersGateway.post($scope.formInfo).success(
+            function(data){
+                $window.sessionStorage.userName = $scope.formInfo.name;
+                $location.url('/houses');
+            }
+        ).error(function(data){
+            $scope.passwordMatch = "error!"
+        })
     }
+  };
+  $scope.login = function() {
+      UsersGateway.get({count:true,where:{password:$scope.password, email:$scope.email}}).success(function(data){
+         console.log(data);
+          if(data === 1) {
+              $location.url('/houses');
+          }
+      });
   };
 }]);
 
@@ -26,6 +47,7 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
     dateCreated: 1,
     location:1
   };
+  $scope.name = $window.sessionStorage.userName;
   $scope.get = function() {
       var interval = {};
       var start = Date.parse($scope.start);
@@ -47,6 +69,7 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
 mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
   var id = rp.id;
   $scope.house = "";
+    $scope.name = $window.sessionStorage.userName;
 
   HousesGateway.getOne(id).success(function(data){
     $scope.house= data.data;
