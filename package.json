@@ -21,5 +21,8 @@
     "grunt-express-server": "^0.4.19",
     "matchdep": "~0.1.2",
     "mongoose": "*"
+  },
+  "devDependencies": {
+    "motion-ui": "^1.2.2"
   }
 }

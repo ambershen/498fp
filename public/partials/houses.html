@@ -1,13 +1,23 @@
 <div class="top-bar user-navbar">
-	<div class="top-bar-title text-left">
+	<div class="row">
+	<div class="small-6 medium-6 large-6 columns">
 		<h5>PillowFindr</h5>
 	</div>
-	<div class="top-bar-right text-right">
+	<div class="small-6 medium-6 large-6 columns text-right">
 		<span class="loging-name">Amber Shen</span>
-		<i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+		<i dropdown-toggle="#user-dropdown" class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+		<ul id="user-dropdown" class="f-dropdown">
+				<li>
+					<a href="#/user">account</a>
+				</li>
+				<li>
+					<a href="#/login">log out</a>
+				</li>
+			</ul>
+	</div>
 	</div>
 </div>
-<div class="houses-container">
+<div class="houses-container" ng-controller ="HouseListView">
 <div class="row columns text-center">
 	<h3>Where do you want to stay?</h3>
 </div>
@@ -24,14 +34,14 @@
 		</div>
 		<div class="search-form dates small-12 medium-2 large-2 columns">
 			<label>Check In</label>				
-			<datepicker>
-				<input class="search-input" ng-model="date" type="text"/>
+			<datepicker date-format="dd-MM-yyyy">
+				<input class="search-input" ng-model="startDate" type="text"/>
 			</datepicker>
 		</div>
 		<div class="search-form dates small-12 medium-2 large-2 columns">		
 			<label>Check Out</label>
-			<datepicker>
-				<input class="search-input" ng-model="date" type="text"/>
+			<datepicker date-format="dd-MM-yyyy">
+				<input class="search-input" ng-model="endDate" type="text" ng-change="checkDate()"/>
 			</datepicker>
 		</div>
 
@@ -67,5 +77,3 @@
 	</div>
 </div>
 </div>
-
-
