@@ -1,6 +1,7 @@
 // Add any custom Sass & CSS here
 @import "mixins";
 
+
 .angular-google-map-container {
     height: 600px;
 }
@@ -88,6 +89,7 @@ body{
 
 .user-navbar{
 	background-color: transparent;
+	border-bottom: 1px solid #272727;
 }
 
 .houses-container{
@@ -121,4 +123,9 @@ body{
 			}
 		}
 	}
+}
+#user-dropdown{
+	list-style: none;
+	background-color: transparent;
+	color: #272727;
 }

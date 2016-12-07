@@ -1,8 +1,5 @@
 var mp4Controllers = angular.module('mp4Controllers', []);
 
-mp4Controllers.controller('navbarController', [,function(){
-
-}]);
 
 mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout','UsersGateway','$window', function($scope,$location,$timeout,UsersGateway,$window){
   $scope.formInfo = {};
@@ -22,6 +19,7 @@ mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout','UsersG
             $scope.passwordMatch = "error!"
         })
     }
+    UsersGateway.put()
   };
   $scope.login = function() {
       UsersGateway.get({where:{password:{$eq:$scope.password}, email:{$eq:$scope.email}}}).success(function(data){
@@ -34,6 +32,7 @@ mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout','UsersG
 }]);
 
 mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
+  
   $scope.select = {
     _id: 1,
     intervals: 1,
@@ -64,6 +63,7 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
           });
   };
   $scope.get();
+
 }]);
 
 mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){

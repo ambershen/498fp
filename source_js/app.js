@@ -1,4 +1,6 @@
-var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services', '720kb.datepicker', 'uiGmapgoogle-maps']);
+//https://github.com/monterail/angular-date-range-picker
+
+var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services', '720kb.datepicker', 'uiGmapgoogle-maps', 'mm.foundation']);
 // .config(
     // ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
     //     GoogleMapApiProviders.configure({
@@ -34,6 +36,9 @@ app.config(['$routeProvider', function($routeProvider) {
   }).
   when('/login',{
     templateUrl: 'partials/login.html',
+  }).
+  when('/user',{
+    templateUrl:'partials/user_details.html',
   }).
   otherwise({
     redirectTo: '/login'
