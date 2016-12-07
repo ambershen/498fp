@@ -1,6 +1,17 @@
 var mp4Controllers = angular.module('mp4Controllers', []);
 
 
+mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout', function($scope,$location,$timeout){
+  $scope.formInfo = {};
+  $scope.confirmPass = '';
+  $scope.saveUser = function(){
+    $scope.passwordMatch = '';
+    if($scope.formInfo.Password !== $scope.confirmPass){
+      $scope.passwordMatch = 'Invalid Password';
+    }
+  };
+}]);
+
 mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
   $scope.select = {
     _id: 1,
@@ -12,7 +23,8 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
     image_path: 1,
     rate: 1,
     university: 1,
-    dateCreated: 1
+    dateCreated: 1,
+    location:1
   };
   $scope.get = function() {
       var interval = {};
@@ -25,6 +37,7 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
       console.log(interval);
       HousesGateway.get($scope.select, interval)
           .success(function (data) {
+              console.log(data.data);
               $scope.houses = data.data;
           });
   };

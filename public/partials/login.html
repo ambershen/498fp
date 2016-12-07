@@ -1,0 +1,39 @@
+
+  <h3 class="login-text text-center">Pillow Findr helps students find a place to stay on <br> over 100 college campuses nation-wide.</h3>
+  <div class="regis-container row">
+  <div class="large-6 columns" style="padding: 0px;">
+  <div class="sign-up-card">
+  	<h4 class="text-center">Sign up for an account.</h4>
+    <form role="form" ng-controller = "SignUpView">
+      	<input type="text" placeholder="Username" class="signup-input" required ng-model="formInfo.Name">
+      	<input type="email" placeholder="Email" class="signup-input" required ng-model="formInfo.Email">
+      	<input type="password" placeholder="Password" class="signup-input" required ng-model="formInfo.Password">
+
+      	<input type="password" placeholder ="Confirm Password" class="signup-input" required ng-model="confirmPass">
+      	<span ng-show="passwordMatch">{{passwordMatch}}</span>
+      	<div class="row" style="margin-bottom: 10px">
+      		<input type="radio" name="agreement" id="agreement-check" class="large-2 columns middle" required>
+      		<label for="agreement-check" class="large-10 columns" id="agreement-check-label">By checking the box I agree to the terms and conditions of Pillow Findr.</label>
+      		<span class="form-error">This field is required. </span>
+      	</div>
+      <button type="submit" class="expanded button" id="signup-button" ng-click = "saveUser()">Sign Up</button>
+    </form>
+  </div>
+  </div>
+
+  <div class="large-6 columns" style="padding: 0px;">
+   <div class="login-card">
+  	<h4 class="text-center" style="margin-bottom: 20px">Login to an existing account.</h4>
+    <form data-abide novalidate>
+      <div data-abide-error class="alert callout" style="display: none;">
+      <p><i class="fi-alert"></i> There are some errors in your form. </p>
+      </div>
+      	<input type="email" placeholder="Email" class="login-input" required style="margin-bottom: 20px">
+      	<span class="form-error">This field is requried.</span>
+      	<input type="password" placeholder="Password" class="login-input" required style="margin-bottom: 30px">
+      	<span class="form-error">This field is required. </span>
+      <button type="button" class="expanded button" id="login-button">Login</button>
+    </form>
+  </div>
+  </div>
+ </div>
