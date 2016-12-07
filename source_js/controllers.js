@@ -1,6 +1,16 @@
 var mp4Controllers = angular.module('mp4Controllers', []);
 
 
+mp4Controllers.controller('SignUpView', ['$scope','$location','$timeout', function($scope,$location,$timeout){
+  $scope.formInfo = {};
+  $scope.confirmPass = '';
+  $scope.saveUser = function(){
+    $scope.passwordMatch = '';
+    if($scope.formInfo.Password !== $scope.confirmPass){
+      $scope.passwordMatch = 'Invalid Password';
+    }
+  };
+}]);
 mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
   $scope.select = {
     _id: 1,
