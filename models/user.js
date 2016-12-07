@@ -10,6 +10,7 @@ var UserSchema = mongoose.Schema({
     password: String,
     dateCreated: Date,
     houses: [String],
+    wishList: [String],
     number: String,
     college: String
 });

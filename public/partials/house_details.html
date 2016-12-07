@@ -23,7 +23,10 @@
   </label>
 </div>
 <div ng-controller="HouseDetailView" class="ng-scope">
-  <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+  <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+    </ui-gmap-marker>
+  </ui-gmap-google-map>
 <div class="orbit" data-orbit>
 <ul clas="orbit-container">
   <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>

@@ -11,27 +11,41 @@ mp4Controllers.controller('HouseListView', ['$scope','$window','$routeParams', '
     description: 1,
     image_path: 1,
     rate: 1,
-    university: 1
+    university: 1,
+    dateCreated: 1
   };
-  HousesGateway.get($scope.select)
-    .success(function(data){
-      $scope.houselist = data.data;
-    })
-  
+  $scope.get = function() {
+      var interval = {};
+      var start = Date.parse($scope.start);
+      var end = Date.parse($scope.end);
+      if(!isNaN(start) && !isNaN(end)) {
+          interval['start'] = new Date($scope.start);
+          interval['end'] = new Date($scope.end);
+      }
+      console.log(interval);
+      HousesGateway.get($scope.select, interval)
+          .success(function (data) {
+              $scope.houses = data.data;
+          });
+  };
+  $scope.get();
 }]);
+
 mp4Controllers.controller('HouseDetailView', ['$scope', '$window', '$routeParams', 'HousesGateway', function($scope, $window, rp, HousesGateway){
   var id = rp.id;
   $scope.house = "";
 
   HousesGateway.getOne(id).success(function(data){
-    // window.alert(1);
-    console.log(data.data);
-    console.log('hi');
     $scope.house= data.data;
-    $scope.map = {center: {latitude: $scope.house.location.lat, longitude: $scope.house.location.lng}, zoom: 14};
-    console.log($scope.map);
+    $scope.map = {center: {latitude: $scope.house.location.lat, longitude: $scope.house.location.lng}, zoom: 17};
+    $scope.marker = {
+      id: 0,
+      coords: {
+        latitude: $scope.house.location.lat,
+        longitude: $scope.house.location.lng
+      }
+    };
   }).error(function(error){
-    // alert(error);
   });
 }]);
 

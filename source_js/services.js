@@ -1,13 +1,25 @@
 var mp4Services = angular.module('mp4Services', []);
 
 
-var baseUrl = "http://216.171.2.19:4000";
+var baseUrl = "";
 
 mp4Services.factory('HousesGateway', function($http) {
     var url = baseUrl + "/api/houses";
    return {
-       get: function(select) {
-           return $http.get(url, {params: {select: select}});
+       get: function(select, interval) {
+           var params = {select: select};
+           if(!jQuery.isEmptyObject(interval))
+           {
+                params['where'] = {intervals: {
+                    $not: {
+                        $elemMatch: {
+                            start: {$lt: interval.end},
+                            end: {$gt: interval.end}
+                        }
+                    }}
+                }
+           }
+           return $http.get(url, {params: params});
        },
        getOne: function(id) {
            return $http.get(url+'/'+ id);
