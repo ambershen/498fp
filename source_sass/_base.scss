@@ -13,8 +13,8 @@ body{
 }
 .login-text{
 	color: #272727;
-	padding-top: 40px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 0px;
 }
 .regis-container{
 	padding: 40px;
@@ -89,7 +89,7 @@ body{
 
 .user-navbar{
 	background-color: transparent;
-	border-bottom: 1px solid #272727;
+	border-bottom: 1px solid rgba(211,211,211,0.8);
 }
 
 .houses-container{
@@ -129,3 +129,86 @@ body{
 	background-color: transparent;
 	color: #272727;
 }
+
+.house-info{
+	position: relative;
+	.info-card{
+		position: absolute;
+		left: 3%;
+		bottom: 5%;
+		background-color: rgba(255,255,255,0.8);
+		border: 1px solid white;
+	}
+}
+#search-button{
+	border-radius: 3px;
+	background-color: rgba(211,211,211,0.7);
+	&:focus{
+		border: none;
+		text-decoration: none;
+	}
+	img,span{
+		@include transition(all 0.5s ease-in-out);
+		&:hover, &:focus{
+			@include transform(scale(1.2));
+		}
+	}
+}
+
+.sign-up-card-mobile{
+	padding: 40px;
+	width: 70%;
+	background-color: #3867FA;
+	color: white;
+	margin: 0 auto;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px rgba(234,241,255,0.8);
+	overflow: hidden;
+	.signup-input{
+		background-color: #3867FA;
+		opacity: 0.6;
+		color: white;
+		border: 1px solid #3867FA;
+
+	}
+	#agreement-check{
+		width: 30px;
+		margin-left: 10px;
+	}
+	#agreement-check-label{
+		margin-right: 0px;
+		width: 80%;
+		color: white;
+	}
+	#signup-button{
+		background-color: white;
+		color: #3867FA;
+		font-family: 'Hind', sans-serif;
+		font-size: 17px;
+		font-weight: 500;
+	}
+}
+.login-card-mobile{
+		padding: 40px;
+		width: 70%;
+		background-color: white;
+		color: rgba(0,0,0,0.7);
+		border-radius: 4px;
+		margin: 0 auto;
+		margin-top: 50px;
+		box-shadow: 0px 2px 2px rgba(234,241,255,0.8);
+
+		.login-input{
+			background-color: #EAF1FF;
+			opacity: 0.6;
+			color: black;
+			border: 1px solid #EAF1FF;
+		}
+		#login-button{
+			background-color: #3867FA;
+			color: white;
+			font-family: 'Hind', sans-serif;
+			font-size: 17px;
+			font-weight: 500;
+		}
+	}
