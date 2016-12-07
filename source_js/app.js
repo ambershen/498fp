@@ -1,14 +1,7 @@
 //https://github.com/monterail/angular-date-range-picker
 
 var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services', '720kb.datepicker', 'uiGmapgoogle-maps', 'ui.calendar']);
-// .config(
-    // ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
-    //     GoogleMapApiProviders.configure({
-    //         key: "AIzaSyB36qymfkWQerKp4IlgC0VO3kpMYOCett4",
-    //         v: '3.20', //defaults to latest 3.X anyhow
-    //         libraries: 'weather,geometry,visualization'
-    //     });
-    // }]);
+
 
 app.filter('dateRange', function() {
   return function(input, startDate, endDate) {
@@ -38,9 +31,14 @@ app.config(['$routeProvider', function($routeProvider) {
   }).
   when('/login',{
     templateUrl: 'partials/login.html',
+    controller: 'SignUpView'
   }).
   when('/user',{
     templateUrl:'partials/user_details.html',
+  }).
+  when('/signup',{
+    templateUrl:'partials/signup.html',
+    controller: 'SignUpView'
   }).
   otherwise({
     redirectTo: '/login'

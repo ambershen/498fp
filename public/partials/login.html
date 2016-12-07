@@ -1,6 +1,6 @@
-
+  <img class="float-center" src="../images/logo_big.png" style="margin-top: 10px; height: 100px; width: 100px;">
   <h3 class="login-text text-center">Pillow Findr helps students find a place to stay on <br> over 100 college campuses nation-wide.</h3>
-  <div class="regis-container row" ng-controller = "SignUpView">
+  <div class="regis-container row hide-for-small-only" ng-controller = "SignUpView">
   <div class="large-6 columns" style="padding: 0px;">
   <div class="sign-up-card">
   	<h4 class="text-center">Sign up for an account.</h4>
@@ -37,3 +37,21 @@
   </div>
   </div>
  </div>
+
+ <!--mobile version-->
+   <div class="regis-container row hide-for-medium">
+    <div class="login-card-mobile" id="loginMobile">
+    <h4 class="text-center" style="margin-bottom: 20px">Login to an existing account.</h4>
+    <form data-abide novalidate>
+      <div data-abide-error class="alert callout" style="display: none;">
+      <p><i class="fi-alert"></i> There are some errors in your form. </p>
+      </div>
+        <input type="email" placeholder="Email" class="login-input" ng-model="email" required style="margin-bottom: 20px">
+        <span class="form-error">This field is requried.</span>
+        <input type="password" placeholder="Password" class="login-input" ng-model="password" required style="margin-bottom: 30px">
+        <span class="form-error">This field is required. </span>
+      <button type="submit" class="expanded button" id="login-button" ng-click="login()">Login</button>
+      <a href="#/signup">Sign Up</a> if you don't have an account.
+    </form>
+  </div>
+   </div>
